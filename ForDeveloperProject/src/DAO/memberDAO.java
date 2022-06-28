@@ -9,4 +9,5 @@ public class memberDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	String sql = "";
+	
 }

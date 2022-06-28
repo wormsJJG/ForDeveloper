@@ -1,0 +1,158 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    font-size: 15px;
+    background-color: #fff;
+    color: #222328;
+}
+a {
+    color: #222328;
+    text-decoration: none;
+}
+.container{
+    width:1200px;
+    margin: auto;
+}
+header{
+    width: 1200px;
+    height: 100px;
+    position: relative;
+    z-index: 10;
+}
+header > div{
+    height: 100px;
+ }
+.header-logo{
+    width:400px; 
+    height: 100px;
+    float:left;
+}
+.header-logo img{
+    width: 300px;
+    height: 100px;
+}
+.navi{
+    float: right;
+    width: 800px;
+}
+.slide{
+    height: 300px;
+}
+.slide > div{
+    height: 300px;
+}
+.menu{
+    padding-top: 45px;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.menu li{
+    width:25%;
+    line-height: 40px;
+    float: left;
+}
+.menu li > a{
+    display: block;
+    background-color:#0066ad;
+    color:#fff;
+}
+.menu li:hover > a{
+    background-color: #ababab;
+    color:#fff;
+    transition: 0.5s;
+}
+.sub-menu{
+    background-color: #fff;
+    display: none; 
+}
+.sub-menu a{
+    display: block;
+    padding: 5px;
+    transition: 0.5s;
+    color: #fff;
+    background-color: #000;
+}
+.sub-menu a:hover{
+    background-color:#ababab; 
+    color:#fff;
+}
+.sub-back{
+    background-color: #000;
+    width:1200px;
+    height:160px;
+    position:absolute;
+    left:0;
+    top:100%;
+    z-index:-1;
+    display:none;
+}
+.slide{
+    position: relative;
+    width:1200px;
+    height:500px;
+    overflow: hidden;
+}
+.slide > div{
+    font-size: 0;
+}
+.slide > div a{
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 0;
+    animation: slide 10s linear infinite;
+}
+.slide > div a:nth-child(1){
+    animation-delay: 0s;
+}
+.slide > div a:nth-child(2){
+    animation-delay: 3.5s;
+}
+.slide > div a:nth-child(3){
+    animation-delay: 7s;
+}
+@keyframes slide{
+    0%{
+        opacity: 0;
+        visibility: hidden;
+    }
+    5%{
+        opacity: 1; 
+    }
+
+    35%{
+
+        opacity: 1;  
+
+    }
+
+    40%{
+
+        opacity: 0;  
+
+    }
+    100%{
+        opacity: 0;
+    }
+}
+footer{
+  width:100%;
+}
+footer > div{
+    height:100px;
+    box-sizing: border-box;
+    float: left;
+}
+.footer-logo{
+    width:300px;
+    line-height: 130px;
+}
+.copyright{
+    line-height: 50px;
+    text-align: center;
+}
