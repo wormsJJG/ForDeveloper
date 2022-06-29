@@ -33,7 +33,7 @@
             <div class="login-form-left-side">
                 <div class="login-top-wrap">
                     <span>아직도 계정이 없으십니까?</span>
-                    <button class="create-account-btn shadow-light" onclick="location.href='../intro/register.jsp'">회원가입</button>
+                    <button type= "button" class="create-account-btn shadow-light" onclick="location.href='../intro/register.jsp'">회원가입</button>
                 </div>
                 <div class="login-input-container">
                     <div class="login-input-wrap input-id">
