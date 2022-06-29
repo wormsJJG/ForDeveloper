@@ -17,7 +17,7 @@ public class memberDAO {
 		int status = 0;
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "INSERT INTO TBL_DEVELOPER VALUES (?,?,DBMS_RANDOM.STRING('A', 15),?,?,'N',NULL,?,0,'N',?,?)";
+			sql = "INSERT INTO TBL_DEVELOPER VALUES (?,?,DBMS_RANDOM.STRING('A', 15),?,?,'N','NULL',?,0,'N',?,?)";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, dto.getId());
 			stmt.setString(2, dto.getPassword());
@@ -46,12 +46,21 @@ public class memberDAO {
 		try {
 			conn = JDBCConnection.getConnection();
 			sql = "select password from tbl_developer where id = ?";
+			String sql2 = "update TBL_DEVELOPER set dstatus='Y' where id=? ";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, id);
 			rs = stmt.executeQuery();
 			if(rs.next()) {
 				if(password.equals(rs.getString("password"))) {
-					check = true;
+					stmt = conn.prepareStatement(sql2);
+					stmt.setString(1, id);
+					int status = stmt.executeUpdate();
+					if(status>0) {
+						check = true;
+						conn.commit();
+					}else {
+						conn.rollback();
+					}
 				}
 			}
 		} catch (ClassNotFoundException e) {
@@ -60,5 +69,25 @@ public class memberDAO {
 			e.printStackTrace();
 		}
 		return check;
+	}
+	public int logout(String id) {
+		int status = 0;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "update TBL_DEVELOPER set dstatus='N' where id=? ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			status = stmt.executeUpdate();
+			if(status>0) {
+				conn.commit();
+			}else {
+				conn.rollback();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return status;
 	}
 }
