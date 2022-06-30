@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	memberDAO dao = new memberDAO();
-	ArrayList<findDevDTO> list = dao.getDeveloperList();
+ArrayList<findDevDTO> list = dao.getDeveloperList();
 %>
 <!DOCTYPE html>
 <html>
@@ -31,19 +31,35 @@
 							class="heading">주 언어</span> <span class="heading">마감 프로젝트수</span>
 						<span class="heading">접속 상태</span>
 					</div>
-					<%for(findDevDTO dto: list){ %>
+					<%
+						for (findDevDTO dto : list) {
+					%>
 					<div class="policy">
-						<span><%=dto.getdName() %></span> <span><%=dto.getPosition() %></span>
-						<span><%=dto.getdLanguage() %></span> <span><%=dto.getEndProCnt() %></span>
-						<span><%=dto.getdStatus() %></span>
+						<span><%=dto.getdName()%></span> <span><%=dto.getPosition()%></span>
+						<span><%=dto.getdLanguage()%></span> <span><%=dto.getEndProCnt()%></span>
+						<span><%=dto.getdStatus()%></span>
 					</div>
-					<%} %>
+					<%
+						}
+					%>
 				</div>
 			</div>
 		</div>
-		<footer>
-			<%@include file="../intro/footer.jsp"%>
-		</footer>
+		<div class="page-control">
+			<div>
+
+				<a id="prev" class="button"
+					href="#none">&laquo; 이전</a>
+
+			</div>
+
+			<div>
+
+				<a id="next" class="button"
+					href="#none">다음 &raquo;</a>
+
+			</div>
+		</div>
 	</div>
 	<script src="../script/jquery-1.12.4.js"></script>
 	<script src="../script/point.js"></script>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="header-logo">
-                     <a href="#none">
+                     <a href="../intro/index.jsp">
                          <img src="../images/logo-02 (최종).png" alt="logo-02">
                      </a>
                  </div>
@@ -16,7 +16,7 @@
                           </li>
                           <li><a href="#none">구인구직</a>
                             <div class="sub-menu">
-                                <a href="../view/FindDeveloperView.jsp">개발자 모집</a>
+                                <a href="../view/FindDeveloperView.jsp">개발자 구하기</a>
                                 <a href="#none">그룹 구하기</a>
                                 <a href="#none">스카우트 해보기</a>
                             </div>
