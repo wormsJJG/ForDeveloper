@@ -19,3 +19,15 @@ $('.menu li').mouseenter(function(){
 $('.menu li').mouseleave(function(){
     $('.sub-menu, .sub-back').stop().slideUp()
 })
+$('.btn a:first-child').click(function(){
+    $('.tab1').show()
+    $('.tab2').hide()
+    $(this).addClass('active')
+    $(this).siblings().removeClass('active')
+})
+$('.btn a:last-child').click(function(){
+    $('.tab1').hide()
+    $('.tab2').show()
+    $(this).addClass('active')
+    $(this).siblings().removeClass('active')
+})

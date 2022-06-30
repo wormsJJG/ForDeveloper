@@ -6,7 +6,7 @@
 	memberDAO dao = new memberDAO();
 	boolean check = dao.login(request.getParameter("id"), request.getParameter("password"));
 	if(check){
-		response.sendRedirect("../intro/index.html");
+		response.sendRedirect("../intro/index.jsp");
 	}else{
 		response.sendRedirect("../intro/login.jsp?status=false");
 	} 

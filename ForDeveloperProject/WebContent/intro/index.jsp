@@ -1,41 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>개발자 모집</title>
+<script>
+	window.onload = function() {
+		const urlParams = new URL(location.href).searchParams;
+		const status = urlParams.get('status');
+		if (status == "false") {
+			alert("비정상적인 접근입니다. (ERROR - 세션없음)");
+		}
+	}
+</script>
 <link href="../css/webstyle.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
 		<header>
-			<div class="header-logo">
-				<a href="#none"> <img src="../images/logo-02 (최종).png"
-					alt="logo-02">
-				</a>
-			</div>
-			<div class="navi">
-				<ul class="menu">
-					<li><a href="#none">그룹 생성 및 참여</a>
-						<div class="sub-menu">
-							<a href="#none">그룹생성</a> <a href="#none">그룹 참여</a>
-						</div></li>
-					<li><a href="#none">구인구직</a>
-						<div class="sub-menu">
-							<a href="#none">개발자 모집</a> <a href="#none">그룹 구하기</a> <a
-								href="#none">스카우트 해보기</a>
-						</div></li>
-					<li><a href="#none">오픈소스</a>
-						<div class="sub-menu">
-							<a href="#none">개발자 문서</a>
-						</div></li>
-					<li><a href="#none">마이페이지</a>
-						<div class="sub-menu">
-							<a href="#none">나의 정보</a> <a href="#none">프로필 보기</a> <a
-								href="#none">내 그룹</a>
-						</div></li>
-				</ul>
-				<div class="sub-back"></div>
-			</div>
+			<%@include file="../intro/header.jsp"%>
 		</header>
 		<div class="slide">
 			<div>
@@ -70,23 +54,20 @@
 					</div>
 				</div>
 			</div>
+			<div class="banner">
+				<a href="#none"> <img src="../images/rocket.gif" alt="rocket"></a>
+			</div>
+			<div class="shortcut">
+				<a href="#none"> <img src="../images/banner-02.png"
+					alt="banner-02">
+				</a>
+			</div>
+			<footer>
+				<%@include file="../intro/footer.jsp"%>
+			</footer>
 		</div>
-		<div class="banner">
-			<a href="#none"> <img src="../images/banner-01.png"
-				alt="banner-01">
-			</a>
-		</div>
-		<div class="shortcut">
-			<a href="#none"> <img src="../images/banner-02.png"
-				alt="banner-02">
-			</a>
-		</div>
-		<footer>
-			<div class="copyright">Copyright (C) Wep developer All Rights
-				Reserved.</div>
-		</footer>
 	</div>
-	<script src="../script/jquery-1.12.4 (1).js"></script>
+	<script src="../script/jquery-1.12.4.js"></script>
 	<script src="../script/point.js"></script>
 </body>
 </html>

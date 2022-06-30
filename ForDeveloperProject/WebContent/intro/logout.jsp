@@ -8,6 +8,7 @@
 	int status = dao.logout(id);
 	if(status>0){
 		response.sendRedirect("../intro/login.jsp");
+		session.removeAttribute("id");
 	}else{
 		response.sendRedirect("../intro/index.jsp?status=false");
 	}

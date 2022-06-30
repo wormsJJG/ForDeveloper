@@ -77,6 +77,9 @@ header > div{
     color: #fff;
     background-color: #000;
 }
+/* .logout a:hover{
+   background-color:red ;
+} */
 .sub-menu a:hover{
     background-color: #0AC9FF;
     color:#fff;
@@ -177,13 +180,6 @@ header > div{
 .news .tab-inner .tabs{}
 .news .tab-inner .tabs > a{}
 .news .tab-inner .tabs > div{}
-.items {
-    height:200px;
-}
-.items > div {
-    height: 200px;
-    float:left;
-}
 .tab1 {
     border: 1px solid #0066ad;
     padding:0 10px;
@@ -213,6 +209,7 @@ header > div{
 }
 .tab2 img{
    width:120px;
+   line-height: 110px;
 } 
 .banner{
     width:350px;
@@ -238,15 +235,7 @@ footer > div{
     box-sizing: border-box;
     float: left;
 }
-footer{
-  width:100%;
-}
-footer > div{
-    height:100px;
-    box-sizing: border-box;
-    float: left;
-}
 .copyright{
-    line-height: 70px;
+    line-height: 50px;
     text-align: center;
 }
