@@ -62,10 +62,10 @@
 					alt="banner-02">
 				</a>
 			</div>
+		</div>
 			<footer>
 				<%@include file="../intro/footer.jsp"%>
 			</footer>
-		</div>
 	</div>
 	<script src="../script/jquery-1.12.4.js"></script>
 	<script src="../script/point.js"></script>

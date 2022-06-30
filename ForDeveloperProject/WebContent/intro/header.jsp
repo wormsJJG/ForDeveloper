@@ -16,7 +16,7 @@
                           </li>
                           <li><a href="#none">구인구직</a>
                             <div class="sub-menu">
-                                <a href="#none">개발자 모집</a>
+                                <a href="../view/FindDeveloperView.jsp">개발자 모집</a>
                                 <a href="#none">그룹 구하기</a>
                                 <a href="#none">스카우트 해보기</a>
                             </div>
