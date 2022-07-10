@@ -6,6 +6,7 @@
 <%
 	memberDAO dao = new memberDAO();
 ArrayList<findDevDTO> list = dao.getDeveloperList();
+String id = String.valueOf(session.getAttribute("id"));
 %>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,15 @@ ArrayList<findDevDTO> list = dao.getDeveloperList();
 <title>개발자 모집</title>
 <link href="../css/webstyle.css" rel="stylesheet">
 <link href="../css/item.css" rel="stylesheet">
+<script>
+function request(sender,recipient){
+	if(confirm('이 개발자를 스카우트 하시겠습니까?')){
+		location.href="requestCtrl.jsp?sender="+sender+"&recipient="+recipient;
+	}else{
+		
+	}
+}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -34,7 +44,7 @@ ArrayList<findDevDTO> list = dao.getDeveloperList();
 					<%
 						for (findDevDTO dto : list) {
 					%>
-					<div class="policy">
+					<div class="policy" onclick="request('<%=id %>','<%=dto.getdName()%>')">
 						<span><%=dto.getdName()%></span> <span><%=dto.getPosition()%></span>
 						<span><%=dto.getdLanguage()%></span> <span><%=dto.getEndProCnt()%></span>
 						<span><%=dto.getdStatus()%></span>

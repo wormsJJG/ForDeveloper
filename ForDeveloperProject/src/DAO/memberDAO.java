@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import DBPK.JDBCConnection;
 import DTO.developerDTO;
 import DTO.findDevDTO;
+import DTO.groupListDTO;
+import DTO.recipientDTO;
+import DTO.sendDTO;
 
 public class memberDAO {
 	Connection conn = null;
@@ -178,5 +181,103 @@ public class memberDAO {
 			e.printStackTrace();
 		}
 		return status;
+	}
+	public ArrayList<groupListDTO> getGroupList(){
+		ArrayList<groupListDTO> list = new ArrayList<groupListDTO>();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select guid, gname, gcontents, registerday, decode(gstatus, 'o','모집중','N','모집완료') gstatus, dname\r\n" + 
+					"from TBL_DEVELOPER, TBL_GROUP\r\n" + 
+					"where duid=groupleader\r\n" + 
+					"order by registerday ";
+			stmt = conn.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				groupListDTO dto = new groupListDTO();
+				dto.setgUid(rs.getString("GUID"));
+				dto.setgName(rs.getString("GNAME"));
+				dto.setgContent(rs.getString("GCONTENTS"));
+				dto.setRegisterDay(rs.getDate("REGISTERDAY"));
+				dto.setgStatus(rs.getString("GSTATUS"));
+				dto.setdName(rs.getString("DNAME"));
+				list.add(dto);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public int requestAboutGroup(String sender, String recipient) {
+		int status = 0;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "insert into request values(?,?,'group') ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, sender);
+			stmt.setString(2, recipient);
+			status = stmt.executeUpdate();
+			if(status>0) {
+				conn.commit();
+			}else {
+				conn.rollback();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+	public ArrayList<sendDTO> getRequestList(String id) {
+		ArrayList<sendDTO> list = new ArrayList<sendDTO>();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select recipient, gname, requesttype, decode(requesttype, 'group','그룹 참가 요청') requestTitle\r\n" + 
+					"from request, TBL_GROUP\r\n" + 
+					"where recipient=guid and sender=? ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				sendDTO dto = new sendDTO();
+				dto.setRecipientUid(rs.getString("recipient"));
+				dto.setRecipientName(rs.getString("gname"));
+				dto.setRequestType(rs.getString("requesttype"));
+				dto.setRequestTitle(rs.getString("requesttitle"));
+				list.add(dto);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public ArrayList<recipientDTO> getCRequestList(String id) {
+		ArrayList<recipientDTO> list = new ArrayList<recipientDTO>();
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select recipient, gname, requesttype, decode(requesttype, 'group','그룹 참가 요청','sc','스카우트') requestTitle\r\n" + 
+					"from request, TBL_GROUP\r\n" + 
+					"where sender=guid and recipient=? ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				recipientDTO dto = new recipientDTO();
+				dto.setRecipientUid(rs.getString("recipient"));
+				dto.setRecipientName(rs.getString("gname"));
+				dto.setRequestType(rs.getString("requesttype"));
+				dto.setRequestTitle(rs.getString("requesttitle"));
+				list.add(dto);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 }

@@ -11,14 +11,12 @@
                           <li><a href="#none" class="first">그룹 생성 및 참여</a>
                             <div class="sub-menu">
                                 <a href="../view/addGroupView.jsp">그룹생성</a>
-                                <a href="https://comento.kr/edu/learn/ITSW/%EC%9B%B9%EA%B0%9C%EB%B0%9C-G1817?closed">그룹 참여</a>
+                                <a href="../view/groupListView.jsp">그룹 참여</a>
                             </div>
                           </li>
                           <li><a href="#none">구인구직</a>
                             <div class="sub-menu">
                                 <a href="../view/FindDeveloperView.jsp">개발자 구하기</a>
-                                <a href="#none">그룹 구하기</a>
-                                <a href="#none">스카우트 해보기</a>
                             </div>
                           </li>
                           <li><a href="#none">오픈소스</a>
@@ -28,7 +26,7 @@
                           </li>
                           <li><a href="#none" class="last">마이페이지</a>
                             <div class="sub-menu">
-                                <a href="#none">나의 정보</a>
+                                <a href="../view/myRequest.jsp">요청보기</a>
                                 <a href="#none">내 그룹</a>
                                 <a class="logout" href="../intro/logout.jsp">로그아웃</a>
                             </div>

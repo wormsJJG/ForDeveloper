@@ -24,7 +24,7 @@
 				<h2>그룹 생성</h2>
 			</div>
 			<div class="form-container">
-				<form class="addForm" action="addGroupCtrl.jsp?uid=<%=uid %>" method="post"
+				<form class="addForm" action="../view/addGroupCtrl.jsp?uid=<%=uid %>" method="post"
 					onsubmit="return check()">
 					<div class="form-group">
 						<input type="text" class="form-control" required id="groupName"
