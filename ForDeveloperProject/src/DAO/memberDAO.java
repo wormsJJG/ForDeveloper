@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -136,5 +137,46 @@ public class memberDAO {
 			JDBCConnection.close(rs, stmt, conn);
 		}
 		return list;
+	}
+	public String getUserUid(String id) {
+		String uid = "";
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select duid from TBL_DEVELOPER where id= ? ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			rs = stmt.executeQuery();
+			if(rs.next()) {
+				uid = rs.getString("duid");
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return uid;
+	}
+	public int addGroup(String uid, String name, String content, Date regiDate) {
+		int status = 0;
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "insert into TBL_GROUP values(DBMS_RANDOM.STRING('A', 15),?,?,?,'o',?) ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, name);
+			stmt.setString(2, content);
+			stmt.setDate(3,regiDate);
+			stmt.setString(4, uid);
+			status = stmt.executeUpdate();
+			if(status>0) {
+				conn.commit();
+			}else {
+				conn.rollback();
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return status;
 	}
 }

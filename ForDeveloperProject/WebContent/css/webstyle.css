@@ -55,11 +55,21 @@ header > div{
     width:25%;
     line-height: 35px;
     float: left;
+   
 }
 .menu li > a{
     display: block;
     background-color:#0066ad;
     color:#fff;
+    
+}
+.first{
+	border-bottom-left-radius: 12px;
+	border-top-left-radius: 12px;
+}
+.last{
+	 border-top-right-radius: 12px;
+	 border-bottom-right-radius: 12px;
 }
 .menu li:hover > a{
     background-color: #0AC9FF;

@@ -8,9 +8,9 @@
                  </div>
                  <div class="navi">
                      <ul class="menu">
-                          <li><a href="#none">그룹 생성 및 참여</a>
+                          <li><a href="#none" class="first">그룹 생성 및 참여</a>
                             <div class="sub-menu">
-                                <a href="#none">그룹생성</a>
+                                <a href="../view/addGroupView.jsp">그룹생성</a>
                                 <a href="https://comento.kr/edu/learn/ITSW/%EC%9B%B9%EA%B0%9C%EB%B0%9C-G1817?closed">그룹 참여</a>
                             </div>
                           </li>
@@ -26,7 +26,7 @@
                                 <a href="#none">개발자 문서</a>
                             </div>
                           </li>
-                          <li><a href="#none">마이페이지</a>
+                          <li><a href="#none" class="last">마이페이지</a>
                             <div class="sub-menu">
                                 <a href="#none">나의 정보</a>
                                 <a href="#none">내 그룹</a>

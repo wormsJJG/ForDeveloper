@@ -11,4 +11,5 @@
 		response.sendRedirect("../intro/login.jsp?status=false");
 	} 
 	session.setAttribute("id", request.getParameter("id"));
+	session.setAttribute("uid", dao.getUserUid(request.getParameter("id")));
 %>
