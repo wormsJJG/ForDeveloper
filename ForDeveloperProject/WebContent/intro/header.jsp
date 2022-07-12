@@ -27,7 +27,7 @@
                           <li><a href="#none" class="last">마이페이지</a>
                             <div class="sub-menu">
                                 <a href="../view/myRequest.jsp">요청보기</a>
-                                <a href="#none">내 그룹</a>
+                                <a href="../view/myGroup.jsp?id=<%=session.getAttribute("id")%>">내 그룹</a>
                                 <a class="logout" href="../intro/logout.jsp">로그아웃</a>
                             </div>
                           </li>

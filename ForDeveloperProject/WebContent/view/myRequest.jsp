@@ -18,6 +18,22 @@
 <title>개발자 모집</title>
 <link href="../css/webstyle.css" rel="stylesheet">
 <link href="../css/item.css" rel="stylesheet">
+<script>
+function srequest(sender,recipient){
+	if(confirm('스카우트 요청을 받으시겠습니까?')){
+		location.href="requestCtrl.jsp?sender="+sender+"&recipient="+recipient+"&ms="+"sc";
+	}else{
+		
+	}
+}
+function grequest(sender,recipient){
+	if(confirm('이 개발자를 스카우트 하시겠습니까?')){
+		location.href="requestCtrl.jsp?sender="+sender+"&recipient="+recipient+"&ms="+"sc";
+	}else{
+		
+	}
+}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -52,7 +68,7 @@
 			<div class="policy-container">
 				<div class="policy-table">
 					<div class="headings">
-						<span class="heading">그룹 이름</span> <span class="heading">요청 메세지</span>
+						<span class="heading">보낸 사람</span> <span class="heading">요청 메세지</span>
 					</div>
 					<%
 						for (recipientDTO dto : list2) {

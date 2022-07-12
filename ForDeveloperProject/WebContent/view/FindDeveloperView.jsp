@@ -16,9 +16,19 @@ String id = String.valueOf(session.getAttribute("id"));
 <link href="../css/webstyle.css" rel="stylesheet">
 <link href="../css/item.css" rel="stylesheet">
 <script>
+window.onload=function(){
+	const urlParams = new URL(location.href).searchParams;
+
+	const status = urlParams.get('status');
+	if(status=="fal"){
+		alert("스카우트 요청을 실패했습니다.");
+	}else if(status=="suc"){
+		alert("스카우트 요청을 성공했습니다.");
+	}
+}
 function request(sender,recipient){
 	if(confirm('이 개발자를 스카우트 하시겠습니까?')){
-		location.href="requestCtrl.jsp?sender="+sender+"&recipient="+recipient;
+		location.href="requestCtrl.jsp?sender="+sender+"&recipient="+recipient+"&ms="+"sc";
 	}else{
 		
 	}
@@ -44,7 +54,7 @@ function request(sender,recipient){
 					<%
 						for (findDevDTO dto : list) {
 					%>
-					<div class="policy" onclick="request('<%=id %>','<%=dto.getdName()%>')">
+					<div class="policy" onclick="request('<%=id %>','<%=dto.getId()%>')">
 						<span><%=dto.getdName()%></span> <span><%=dto.getPosition()%></span>
 						<span><%=dto.getdLanguage()%></span> <span><%=dto.getEndProCnt()%></span>
 						<span><%=dto.getdStatus()%></span>

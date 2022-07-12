@@ -2,15 +2,13 @@ package DTO;
 
 import java.sql.Date;
 
-public class groupListDTO {
-	private String id;
+public class groupInfoDTO {
 	private String gUid;
 	private String gName;
-	private String gContent;
+	private String gContents;
 	private Date registerDay;
 	private String gStatus;
-	private String dName;
-	
+	private String groupleader;
 	public String getgUid() {
 		return gUid;
 	}
@@ -23,11 +21,11 @@ public class groupListDTO {
 	public void setgName(String gName) {
 		this.gName = gName;
 	}
-	public String getgContent() {
-		return gContent;
+	public String getgContents() {
+		return gContents;
 	}
-	public void setgContent(String gContent) {
-		this.gContent = gContent;
+	public void setgContents(String gContents) {
+		this.gContents = gContents;
 	}
 	public Date getRegisterDay() {
 		return registerDay;
@@ -41,17 +39,11 @@ public class groupListDTO {
 	public void setgStatus(String gStatus) {
 		this.gStatus = gStatus;
 	}
-	public String getdName() {
-		return dName;
+	public String getGroupleader() {
+		return groupleader;
 	}
-	public void setdName(String dName) {
-		this.dName = dName;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
+	public void setGroupleader(String groupleader) {
+		this.groupleader = groupleader;
 	}
 	
 	

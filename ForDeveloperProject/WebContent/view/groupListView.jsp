@@ -22,14 +22,14 @@ window.onload=function(){
 
 	const status = urlParams.get('status');
 	if(status=="fal"){
-		alert("참가 요청이 실패했습니다.");
+		alert("참가 요청을 실패했습니다.");
 	}else if(status=="suc"){
 		alert("참가 요청을 성공했습니다.");
 	}
 }
 	function request(sender,recipient){
 		if(confirm('이 그룹에 참가 요청을 보내시겠습니까?')){
-			location.href="requestCtrl.jsp?sender="+sender+"&recipient="+recipient;
+			location.href="requestCtrl.jsp?sender="+sender+"&recipient="+recipient+"&ms="+"group";
 		}else{
 			
 		}
@@ -55,7 +55,7 @@ window.onload=function(){
 					<%
 						for (groupListDTO dto : list) {
 					%>
-					<div class="policy" onclick="request('<%=id %>','<%=dto.getgUid()%>')">
+					<div class="policy" onclick="request('<%=id %>','<%=dto.getId()%>')">
 						<span><%=dto.getgName()%></span> <span><%=dto.getgContent()%></span>
 						<span><%=dto.getRegisterDay()%></span> <span><%=dto.getgStatus()%></span>
 						<span><%=dto.getdName()%></span>

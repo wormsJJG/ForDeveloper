@@ -1,6 +1,7 @@
 package DTO;
 
 public class findDevDTO {
+	private String id;
 	private String dName;
 	private String position;
 	private String dLanguage;
@@ -41,5 +42,11 @@ public class findDevDTO {
 	public String toString() {
 		return "findDevDTO [dName=" + dName + ", position=" + position + ", dLanguage=" + dLanguage + ", endProCnt="
 				+ endProCnt + ", dStatus=" + dStatus + "]";
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 }
